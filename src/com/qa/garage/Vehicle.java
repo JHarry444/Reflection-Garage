@@ -1,0 +1,41 @@
+package com.qa.garage;
+
+public abstract class Vehicle {
+
+	private int weight;
+	private int noOfWheels;
+	private int id;
+
+	public Vehicle(int weight, int noOfWheels) {
+		super();
+		this.setWeight(weight);
+		this.setNoOfWheels(noOfWheels);
+	}
+
+	public abstract float calcBill();
+
+	public int getWeight() {
+		return this.weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public int getNoOfWheels() {
+		return this.noOfWheels;
+	}
+
+	public void setNoOfWheels(int noOfWheels) {
+		this.noOfWheels = noOfWheels;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+}
