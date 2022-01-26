@@ -4,12 +4,16 @@ public abstract class Vehicle {
 
 	private int weight;
 	private int noOfWheels;
-	private int id;
+
+	private final int id;
+
+	private static int currentId = 0;
 
 	public Vehicle(int weight, int noOfWheels) {
 		super();
 		this.setWeight(weight);
 		this.setNoOfWheels(noOfWheels);
+		this.id = ++currentId;
 	}
 
 	public abstract float calcBill();
@@ -33,9 +37,9 @@ public abstract class Vehicle {
 	public int getId() {
 		return this.id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 }

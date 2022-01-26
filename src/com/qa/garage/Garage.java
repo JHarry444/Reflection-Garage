@@ -7,15 +7,23 @@ public class Garage {
 
 	private List<Vehicle> vehicles = new ArrayList<>();
 
-	private int currentId;
+//	private int currentId;
 
 	public Garage() {
 		super();
 	}
 
 	public void addVehicle(Vehicle v) {
-		v.setId(++currentId);
+//		v.setId(++currentId);
 		this.vehicles.add(v);
+	}
+
+	public Vehicle getVehicle(int id) {
+		for (Vehicle v : this.vehicles) {
+			if (v.getId() == id)
+				return v;
+		}
+		throw new VehicleNotFoundException("No vehicle found with id: " + id);
 	}
 
 	public float calcBillUpgraded() {

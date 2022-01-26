@@ -19,7 +19,6 @@ public class Car extends Vehicle {
 
 	@Override
 	public float calcBill() {
-		// TODO Auto-generated method stub
 		return this.getNoOfWheels() * 50 + this.getWeight() * 2 + this.getBootSize() * 20;
 	}
 
