@@ -1,6 +1,5 @@
 package com.qa.garage;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -83,11 +82,13 @@ public class GarageMenu {
 				}
 			}
 			this.garage.addVehicle((Vehicle) obj);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException e) {
-			System.out.println("Missing default constructor");
+		} catch (InstantiationException e) {
+			System.out.println("ERROR: "
+					+ "Unable to create a vehicle of that type - please unsure you only try to instantiate concrete classes");
+		} catch (NoSuchMethodException e) {
+			System.out.println("ERROR: " + "Missing default constructor");
 		} catch (ClassNotFoundException e) {
-			System.out.println("No vehicle of that type");
+			System.out.println("ERROR: " + "No vehicle of that type");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
