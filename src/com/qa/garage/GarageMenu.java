@@ -66,6 +66,10 @@ public class GarageMenu {
 		try {
 			Class<?> clazz = Class.forName("com.qa.garage." + vehicleType);
 			Object obj = clazz.getConstructor().newInstance();
+			if (!(obj instanceof Vehicle)) {
+				System.out.println("Invalid Vehicle Type: " + vehicleType);
+				return;
+			}
 			for (Entry<String, Method> entry : this.getSetters(clazz).entrySet()) {
 				System.out.println("Please enter a " + entry.getKey() + ":");
 				Method setter = entry.getValue();
