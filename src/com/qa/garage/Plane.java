@@ -4,6 +4,9 @@ public class Plane extends Vehicle {
 
 	private boolean propellor;
 
+	public Plane() {
+	}
+
 	public Plane(int weight, int noOfWheels, boolean propellor) {
 		super(weight, noOfWheels);
 		this.setPropellor(propellor);
@@ -25,6 +28,12 @@ public class Plane extends Vehicle {
 			bill /= 2;
 		}
 		return bill;
+	}
+
+	@Override
+	public String toString() {
+		return "Plane [propellor=" + this.propellor + ", getWeight()=" + this.getWeight() + ", getNoOfWheels()="
+				+ this.getNoOfWheels() + ", getId()=" + this.getId() + "]";
 	}
 
 }

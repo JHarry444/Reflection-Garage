@@ -9,6 +9,10 @@ public abstract class Vehicle {
 
 	private static int currentId = 0;
 
+	public Vehicle() {
+		this(0, 0);
+	}
+
 	public Vehicle(int weight, int noOfWheels) {
 		super();
 		this.setWeight(weight);

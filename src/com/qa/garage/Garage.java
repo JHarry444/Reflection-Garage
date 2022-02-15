@@ -83,8 +83,20 @@ public class Garage {
 
 	public void removeVehicle(Class<?> clazz) {
 		for (Vehicle v : new ArrayList<>(this.vehicles)) {
+
 			if (v.getClass() == clazz) {
 				this.vehicles.remove(v);
+				continue;
+			}
+			Class<?> superClass = clazz.getSuperclass();
+
+			while (superClass != Object.class) {
+				if (superClass == clazz) {
+					this.vehicles.remove(v);
+					continue;
+				} else {
+					superClass = superClass.getSuperclass();
+				}
 			}
 		}
 	}
