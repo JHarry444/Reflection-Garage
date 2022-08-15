@@ -65,6 +65,7 @@ public class GarageMenu {
 		try {
 			Class<?> clazz = Class.forName("com.qa.garage." + vehicleType);
 			Object obj = clazz.getConstructor().newInstance();
+
 			if (!(obj instanceof Vehicle)) {
 				System.out.println("Invalid Vehicle Type: " + vehicleType);
 				return;
@@ -73,18 +74,19 @@ public class GarageMenu {
 				System.out.println("Please enter a " + entry.getKey() + ":");
 				Method setter = entry.getValue();
 				Class<?> parameterType = setter.getParameterTypes()[0];
+
 				if (parameterType == int.class) {
 					setter.invoke(obj, Utils.getInteger());
 				} else if (parameterType == String.class) {
 					setter.invoke(obj, Utils.getString());
-				} else if (parameterType == Boolean.class) {
+				} else if (parameterType == Boolean.class || parameterType == boolean.class) {
 					setter.invoke(obj, Utils.getBoolean());
 				}
 			}
 			this.garage.addVehicle((Vehicle) obj);
 		} catch (InstantiationException e) {
 			System.out.println("ERROR: "
-					+ "Unable to create a vehicle of that type - please unsure you only try to instantiate concrete classes");
+					+ "Unable to create a vehicle of that type - please ensure you only try to instantiate concrete classes");
 		} catch (NoSuchMethodException e) {
 			System.out.println("ERROR: " + "Missing default constructor");
 		} catch (ClassNotFoundException e) {
